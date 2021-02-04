@@ -262,6 +262,7 @@ namespace Calculadora
             this.btnDot.TabIndex = 18;
             this.btnDot.Text = ".";
             this.btnDot.UseVisualStyleBackColor = true;
+            this.btnDot.Click += new System.EventHandler(this.btnDot_Click);
             // 
             // btnEqual
             // 
@@ -277,11 +278,13 @@ namespace Calculadora
             // 
             // txbPanel
             // 
+            this.txbPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPanel.Location = new System.Drawing.Point(12, 12);
             this.txbPanel.Multiline = true;
             this.txbPanel.Name = "txbPanel";
             this.txbPanel.Size = new System.Drawing.Size(270, 64);
             this.txbPanel.TabIndex = 20;
+            this.txbPanel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txbPanel.TextChanged += new System.EventHandler(this.txbPanel_TextChanged);
             // 
             // Form1

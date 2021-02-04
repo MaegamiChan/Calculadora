@@ -75,6 +75,11 @@ namespace Calculadora
             txbPanel.Text += 9.ToString();
         }
 
+        private void btnDot_Click(object sender, EventArgs e)
+        {
+            txbPanel.Text += ",";
+        }
+
         private void btnMin_Click(object sender, EventArgs e)
         {
             numDigitado1 = double.Parse(txbPanel.Text);
