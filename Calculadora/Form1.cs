@@ -84,33 +84,33 @@ namespace Calculadora
         {
             numDigitado1 = double.Parse(txbPanel.Text);
             operacao = '-';
-            txbPanel.Text = "";
+            txbPanel.Text += "-";
         }
 
         private void btnMult_Click(object sender, EventArgs e)
         {
             numDigitado1 = double.Parse(txbPanel.Text);
             operacao = '*';
-            txbPanel.Text = "";
+            txbPanel.Text += "*";
         }
 
         private void btnDiv_Click(object sender, EventArgs e)
         {
             numDigitado1 = double.Parse(txbPanel.Text);
             operacao = '/';
-            txbPanel.Text = "";
+            txbPanel.Text += "/";
         }
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
             numDigitado1 = double.Parse(txbPanel.Text);
             operacao = '+';
-            txbPanel.Text = "";
+            txbPanel.Text += "+";
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            numDigitado2 = double.Parse(txbPanel.Text);
+            numDigitado2 = double.Parse(txbPanel.Text.Split(operacao)[1]);
             Calculate calculo = new Calculate(numDigitado1, numDigitado2);
 
             switch (operacao)
@@ -130,6 +130,13 @@ namespace Calculadora
             }
 
             txbPanel.Text = resultado.ToString();
+        }
+
+        private void btnClearAll_Click(object sender, EventArgs e)
+        {
+            numDigitado1 = 0;
+            numDigitado2 = 0;
+            operacao = '0';
         }
     }
 }

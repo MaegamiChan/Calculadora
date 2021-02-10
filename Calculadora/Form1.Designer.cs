@@ -61,6 +61,7 @@ namespace Calculadora
             this.btnClearAll.TabIndex = 0;
             this.btnClearAll.Text = "AC";
             this.btnClearAll.UseVisualStyleBackColor = true;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
             // btnClear
             // 
