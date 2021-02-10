@@ -12,12 +12,15 @@ namespace Calculadora
 {
     public partial class Form1 : Form
     {
-        char operacao;
-        double numDigitado1, numDigitado2, resultado;
+        char operacao = '#';
+        double numDigitado1 = 0;
+        double numDigitado2 = 0;
+        double resultado = 0;
 
         public Form1()
         {
             InitializeComponent();
+            txbPanel.Text = "0";
         }
 
         public void txbPanel_TextChanged(object sender, EventArgs e)
@@ -110,33 +113,43 @@ namespace Calculadora
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            numDigitado2 = double.Parse(txbPanel.Text.Split(operacao)[1]);
-            Calculate calculo = new Calculate(numDigitado1, numDigitado2);
-
-            switch (operacao)
+            if (operacao == '#')
             {
-                case '+':
-                    resultado = calculo.Soma();
-                    break;
-                case '-':
-                    resultado = calculo.Subtracao();
-                    break;
-                case '*':
-                    resultado = calculo.Multiplicacao();
-                    break;
-                case '/':
-                    resultado = calculo.Divisao();
-                    break;
+                txbPanel.Text = "ERRO";
+            }
+            else
+            {
+                numDigitado2 = double.Parse(txbPanel.Text.Split(operacao)[1]);
+                Calculate calculo = new Calculate(numDigitado1, numDigitado2);
+
+                switch (operacao)
+                {
+                    case '+':
+                        resultado = calculo.Soma();
+                        break;
+                    case '-':
+                        resultado = calculo.Subtracao();
+                        break;
+                    case '*':
+                        resultado = calculo.Multiplicacao();
+                        break;
+                    case '/':
+                        resultado = calculo.Divisao();
+                        break;
+                }
+
+                txbPanel.Text = resultado.ToString();
             }
 
-            txbPanel.Text = resultado.ToString();
+            
         }
 
         private void btnClearAll_Click(object sender, EventArgs e)
         {
             numDigitado1 = 0;
             numDigitado2 = 0;
-            operacao = '0';
+            operacao = '#';
+            txbPanel.Text = "0";
         }
     }
 }
